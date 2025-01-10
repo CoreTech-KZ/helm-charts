@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  cloudflare:
+  - apiVersion: v2
+    appVersion: 1.0.2
+    created: "2025-01-10T12:05:30.274317546Z"
+    description: A Helm chart for Kubernetes
+    digest: d3a6585228ee7071053b4a1442496bf126a47e454ecc150ad684531f90bc4fe8
+    name: cloudflare
+    type: application
+    urls:
+    - https://github.com/CoreTech-KZ/helm-charts/releases/download/cloudflare-1.0.2/cloudflare-1.0.2.tgz
+    version: 1.0.2
+generated: "2025-01-10T12:05:30.274328456Z"
