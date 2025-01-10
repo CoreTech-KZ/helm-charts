@@ -41,7 +41,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext: {{- omit .Values.containerSecurityContext "enabled" | toYaml | nindent 12 }}
           command:
-            - cloudflare
+            - cloudflared
             - tunnel
             - --no-autoupdate
             - --metrics
