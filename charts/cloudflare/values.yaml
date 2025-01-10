@@ -1,0 +1,54 @@
+---
+cloudflare:
+  tokenSecretName: ""
+  tokenSecretKey: tunnelToken
+
+image:
+  repository: cloudflare/cloudflared
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+replicaCount: 2
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+containerSecurityContext:
+  enabled: true
+  runAsUser: 0
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+  readOnlyRootFilesystem: true
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    memory: 256Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app
+              operator: In
+              values:
+                - cloudflared
+        topologyKey: kubernetes.io/hostname
