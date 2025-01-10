@@ -15,11 +15,9 @@ spec:
   template:
     metadata:
       annotations:
-        # These are here so the deployment rolls when the config or secret change.
-        checksum/secret: {{ .Values.cloudflare.tunnel_token | sha256sum }}
-        {{- with .Values.podAnnotations }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+{{- with .Values.podAnnotations }}
+{{- toYaml . | nindent 8 }}
+{{- end }}
       labels:
         pod: cloudflare
         app: cloudflare
